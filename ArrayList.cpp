@@ -37,12 +37,12 @@ void ArrayList<ItemType>::clear(){
    /** @throw  PrecondViolatedExcept if position < 1 or position > getLength(). */
 template<class ItemType>
 ItemType ArrayList<ItemType>::getEntry(int position) const throw(PrecondViolatedExcept){
-
+    return items[position];
 }
 
    /** @throw  PrecondViolatedExcept if position < 1 or position > getLength(). */
 template<class ItemType>
 void ArrayList<ItemType>::setEntry(int position, const ItemType& newEntry) 
                                throw(PrecondViolatedExcept){
-
+                                    items[position] = newEntry;
                                }
