@@ -1,8 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
-/** Listing 7-6.
-    @file PrecondViolatedExcept.cpp */
+/** @file PrecondViolatedExcept.cpp */
 
 #include "PrecondViolatedExcept.h"
 

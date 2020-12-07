@@ -1,8 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT list: Array-based implementation.
-    Listing 9-1.
     @file ArrayList.h */
 
 #ifndef ARRAY_LIST_

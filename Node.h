@@ -1,8 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
-/** @file Node.h 
-    Listing 4-1 */
+/** @file Node.h  */
 #ifndef NODE_
 #define NODE_
 
