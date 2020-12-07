@@ -13,27 +13,21 @@ int ArrayList<ItemType>::getLength() const{
 }
 template<class ItemType>
 bool ArrayList<ItemType>::insert(int newPosition, const ItemType& newEntry){
-    int i = newPosition-1;
-    ItemType entry1 = items[i].getEntry();
-    ItemType entry2;
-    for(i = newPosition; i < itemCount; i++){
-        entry2 = items[i + 1].getEntry();
-        items[i].set(entry1);
-        entry1 = entry2;
+    int i = newPosition;
+    for(i = maxItems - 1; i > newPostion; i--){
+        item[i+1] = item[i];
     }
     
     i = newPosition - 1;
-    items[i].set(newEntry);
+    items[i] = newEntry;
     return true;
 }
 template<class ItemType>
 bool ArrayList<ItemType>::remove(int position){
-    int i = newPosition-1;
-    auto entry1 = items[i];
-    auto entry2 = items[i+1].getEntry();
-    for(i = position - 1; i < itemCount; i++){
-        items[i].set(entry2);
+    for(i = position; i < itemCount; i++){
+        items[i] = items[i+1];
     }
+    items[itemCount] = null;
 }
 template<class ItemType>
 void ArrayList<ItemType>::clear(){
