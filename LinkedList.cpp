@@ -1,11 +1,11 @@
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const{
-    Node *cur = headPtr;
+    Node<ItemType> *cur = headPtr;
       
       int i = 2;
 
-      for (; i < position && cur->next; i++)
-        cur = cur->next;
+      for (; i < position && cur->getNext(); i++)
+        cur = cur->getNext();
 
       if (i != position) 
         throw std::out_of_range("Index is out of bounds");
@@ -37,30 +37,30 @@ int LinkedList<ItemType>::getLength() const{
 }
 template<class ItemType>
 bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry){
-    Node *cur = getNodeAt(newPosition - 1);
-    Node *ent = cur->next;
-    cur->next = Node(newEntry);
-    cur->next->next = ent;
+    Node<ItemType> *cur = getNodeAt(newPosition - 1);
+    Node<ItemType> *ent = cur->getNext();
+    cur->setNext(new Node<ItemType>(newEntry));
+    cur->getNext()->setNext(ent);
     itemCount++;
     return true;
 }
 template<class ItemType>
 bool LinkedList<ItemType>::remove(int position){
     if(position == 1){
-        headPtr = head->next;
+        headPtr = headPtr->getNext();
         itemCount--;
         return true;
     }
-    Node *cur = getNodeAt(newPosition - 1);
-    Node *ent = cur->next->next;
+    Node<ItemType> *cur = getNodeAt(position - 1);
+    Node<ItemType> *ent = cur->getNext()->getNext();
     
-    cur->next = ent;
+    cur->setNext(ent);
     itemCount--;
     return true;
 }
 template<class ItemType>
 void LinkedList<ItemType>::clear(){
-    ~LinkedList();
+    this->~LinkedList();
 }
    
    /** @throw PrecondViolatedExcept if position < 1 or
@@ -73,7 +73,9 @@ ItemType LinkedList<ItemType>::getEntry(int position) const throw(PrecondViolate
    /** @throw PrecondViolatedExcept if position < 1 or
                                        position > getLength(). */
 template<class ItemType>
-void LinkedList<ItemType>::replace(int position, const ItemType& newEntry)
+ItemType LinkedList<ItemType>::replace(int position, const ItemType& newEntry)
                               throw(PrecondViolatedExcept){
+                                  ItemType item = getNodeAt(position)->getItem();
                                   getNodeAt(position)->setItem(newEntry);
+                                  return item;
                               }

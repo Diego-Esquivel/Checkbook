@@ -42,7 +42,7 @@ public:
 
    /** @throw PrecondViolatedExcept if position < 1 or
                                        position > getLength(). */
-   void replace(int position, const ItemType& newEntry)
+   ItemType replace(int position, const ItemType& newEntry)
                               throw(PrecondViolatedExcept);
 }; // end LinkedList
 

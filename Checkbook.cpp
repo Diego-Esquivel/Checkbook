@@ -33,6 +33,6 @@ return currentBalance;
 void Checkbook::setCheck(const int position, const Check check){
     checks->insert(position, check);
 }
-Check Checkbook::getCheck(const int position = 1){
+Check Checkbook::getCheck(const int position){
     return checks->getEntry(position);
 }
