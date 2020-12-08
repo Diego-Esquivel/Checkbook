@@ -3,14 +3,14 @@
 
 class Checkbook {
     private:
-        LinkedList<Check> checks();
+        LinkedList<Check> *checks;
         double currentBalance;
         int nextCheckNumber = 1;
     public:
         Checkbook();
         Checkbook(const double currentBalance);
-        Checkbook(const LinkedList<Check> checks);
-        Checkbook(const double currentBalance, const LinkedList<Check> checks);
+        Checkbook(const LinkedList<Check>& checks);
+        Checkbook(const double currentBalance, const LinkedList<Check>& checks);
         Checkbook(const Check check);
         Checkbook(const double currentBalance, const Check check);
         
