@@ -1,3 +1,5 @@
+#include "LinkedList.h"
+
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const{
     Node<ItemType> *cur = headPtr;

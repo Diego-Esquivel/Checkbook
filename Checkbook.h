@@ -16,6 +16,6 @@ class Checkbook {
         
         void setCurrentBalance(const double currentBalance);
         double getCurrentBalance();
-        void setCheck(const int position, const Check check);
+        void setCheck(const Check check);
         Check getCheck(const int position = 1);
 };

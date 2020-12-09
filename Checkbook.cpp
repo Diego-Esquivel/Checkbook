@@ -30,8 +30,8 @@ this->currentBalance = currentBalance;
 double Checkbook::getCurrentBalance(){
 return currentBalance;
 }
-void Checkbook::setCheck(const int position, const Check check){
-    checks->insert(position, check);
+void Checkbook::setCheck(const Check check){
+    checks->insert(nextCheckNumber, check);
 }
 Check Checkbook::getCheck(const int position){
     return checks->getEntry(position);
