@@ -11,20 +11,20 @@ Node<Type>* LinkedList<Type>::getNodeAt(int position) const {
 
 template<class Type>
 LinkedList<Type>::LinkedList() {
-	headPtr = NULL;
+	headPtr = nullptr;
 	itemCount = 0;
 }
 
 template<class Type>
 LinkedList<Type>::LinkedList(const LinkedList& list) {
 	headPtr = new Node<Type>();
-	Node<Type>& node = headPtr;
+	Node<Type>& node = *headPtr;
 	node.setItem(list.getFront());
 	int i = 1;
 	while (list.getNodeAt(i)) {
 		node.setItem(list.getEntry(i));
 		node.setNext(new Node<Type>());
-		node = node.getNext();
+		node = *node.getNext();
 		i++;
 	}
 	itemCount = i-1;
@@ -41,7 +41,7 @@ bool LinkedList<Type>::isEmpty() const{
 }
 
 template<class Type>
-int LinkedList<Type>::getLength() {
+int LinkedList<Type>::getLength() const {
 	return itemCount;
 }
 
@@ -75,7 +75,7 @@ bool LinkedList<Type>::insertToEnd(const Type& newEntry) {
 	else {
 		getNodeAt(itemCount)->setNext(new Node<Type>(newEntry));
 		itemCount++;
-		getNodeAt(itemCount)->setNext(NULL);
+		getNodeAt(itemCount)->setNext(nullptr);
 	}
 	return true;
 }
@@ -92,7 +92,7 @@ bool LinkedList<Type>::remove(int position) {
 template<class Type>
 bool LinkedList<Type>::removeEnd() {
 	Node<Type>* curr = getNodeAt(itemCount - 1);
-	curr->setNext(NULL);
+	curr->setNext(nullptr);
 	itemCount--;
 	return true;
 }
@@ -124,9 +124,9 @@ template<class Type>
 LinkedList<Type> LinkedList<Type>::operator =(const LinkedList& right) {
 	if (this != &right) {
 		if (itemCount > 0)
-			~LinkedList();
-		itemCount = right->itemCount;
-		headPtr = new Node(right->headPtr);
+			this->~LinkedList();
+		itemCount = right.itemCount;
+		headPtr = new Node<Type>(right.headPtr->getItem());
 		
 	}
 	return *this;

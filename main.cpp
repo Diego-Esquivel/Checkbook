@@ -3,12 +3,21 @@
 
 #include <iostream>
 #include "LinkedList.h"
+#include "Check.h"
+#include "Checkbook.h"
 
 int main()
 {
     ListInterface<int>* lit = new LinkedList<int>();
     lit->insert(1,7);
-    std::cout << lit->getEntry(1);
+    std::cout << lit->getEntry(1) << std::endl;
+    const char* character = "Fred\0";
+    Check* check = new Check(77.77, *character);
+    std::cout << check->getAmount() << std::endl;
+    std::cout << check->getPayTo() << std::endl;
+    Checkbook* checkbook = new Checkbook();
+    checkbook->setCheck(*check);
+    std::cout << checkbook->getCheck().getAmount() << std::endl;
     std::cout << "Hello World!\n";
 }
 

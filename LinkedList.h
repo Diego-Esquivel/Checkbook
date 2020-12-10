@@ -18,7 +18,7 @@ public:
 	~LinkedList();
 
 	bool isEmpty() const;
-	int getLength();
+	int getLength() const;
 	bool insert(int newPosition, const Type& newEntry);
 	bool insertToEnd(const Type& newEntry);
 	bool remove(int position);

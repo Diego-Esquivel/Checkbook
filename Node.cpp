@@ -2,12 +2,12 @@
 
 template<class Type>
 Node<Type>::Node() {
-	next = NULL;
+	next = nullptr;
 }
 template<class Type>
 Node<Type>::Node(Type item) {
 	this->item = item;
-	next = NULL;
+	next = nullptr;
 }
 template<class Type>
 Node<Type>::Node(Type item, Node<Type>* nextNodePtr){
@@ -18,7 +18,7 @@ Node<Type>::Node(Type item, Node<Type>* nextNodePtr){
 template<class Type>
 void Node<Type>::setItem(Type item) {
 	this->item = item;
-	this->next = NULL;
+	this->next = nullptr;
 }
 template<class Type>
 void Node<Type>::setNext(Node<Type>* nextNodePtr) {
