@@ -11,13 +11,32 @@ int main()
     check1.setAmount(77.77);
     check1.setPayTo(character);
     Checkbook* checkbook = new Checkbook();
-    checkbook->deposit(5000.00);
-    checkbook->writeCheck(check1);
-    checkbook->writeCheck(80., "Arnold\0");
-    checkbook->writeCheck(600., "Pedro\0");
-    checkbook->writeCheck(600., "Hamlet\0");
-    checkbook->writeCheck(10000., "Tim\0");
     std::cout << *checkbook;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    checkbook->deposit(5000.00);
+    std::cout << *checkbook;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    checkbook->writeCheck(check1);
+    std::cout << *checkbook;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    checkbook->writeCheck(80., "Arnold");
+    std::cout << *checkbook;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    checkbook->writeCheck(600., "Pedro");
+    std::cout << *checkbook;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    checkbook->writeCheck(600., "Hamlet");
+    std::cout << *checkbook;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    checkbook->writeCheck(10000., "Tim");
+    std::cout << *checkbook;
+    std::cout << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
