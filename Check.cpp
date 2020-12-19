@@ -1,22 +1,8 @@
 #include "Check.h"
 
 Check::Check() : amount(0) {
-    payTo = new char();
+    payTo = "";
     checkNumber = 0;
-}
-Check::Check(const double amount) : amount(amount) {
-    payTo = new char();
-    checkNumber = 0;
-}
-Check::Check(const char& payTo) {
-    this->payTo = &payTo;
-    amount = 0;
-    checkNumber = 0;
-}
-Check::Check(const double amount, const char& payTo) : amount(amount) {
-    this->setPayTo(payTo);
-    checkNumber = 0;
-
 }
 
 void Check::setAmount(const double amount) {
@@ -31,9 +17,23 @@ void Check::setCheckNumber(const int checkNumber) {
 int Check::getCheckNumber() const {
     return checkNumber;
 }
-void Check::setPayTo(const char& payTo) {
-    this->payTo = &payTo;
+void Check::setPayTo(const string payTo) {
+    this->payTo = payTo;
 }
-const char* Check::getPayTo() const {
+string Check::getPayTo() const {
     return payTo;
+}
+
+std::ostream& operator << (std::ostream& out, const Check& c) {
+    out << "\t\tCheck #: " << c.checkNumber << std::endl << "  Pay To: " << c.getPayTo() << "\t  Amount: " << c.amount << std::endl;
+    return out;
+}
+
+Check Check::operator =(const Check& right) {
+    if (this != &right) {
+        checkNumber = right.checkNumber;
+        amount = right.amount;
+        setPayTo(right.payTo);
+    }
+    return *this;
 }

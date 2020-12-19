@@ -3,6 +3,8 @@
 
 #include "Check.h"
 #include "LinkedList.h"
+#include <iostream>
+#include <iomanip>
 
 
 class Checkbook {
@@ -12,16 +14,13 @@ private:
     int nextCheckNumber = 1;
 public:
     Checkbook();
-    Checkbook(const double currentBalance);
-    Checkbook(const LinkedList<Check>& checks);
-    Checkbook(const double currentBalance, const LinkedList<Check>& checks);
-    Checkbook(const Check check);
-    Checkbook(const double currentBalance, const Check check);
 
-    void setCurrentBalance(const double currentBalance);
-    double getCurrentBalance();
-    void setCheck(const Check check);
-    Check getCheck(const int position = 1);
+    bool deposit(double amount);
+    bool writeCheck(Check);
+    bool writeCheck(double, string);
+
+    friend std::ostream& operator << (std::ostream& out, const Checkbook& c);
+    Checkbook operator =(const Checkbook& right);
 };
 
 #endif
